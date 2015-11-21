@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="viewport" content="user-scalable=0, width=device-width, initial-scale=1.0,  minimum-scale=1.0, maximum-scale=1.0" /> 
+		<title>Stellar.js Backgrounds Demo</title>
+		<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		.photo {
+			background-attachment: fixed;
+			background-position: 50% 0;
+			background-repeat: no-repeat;
+			height: 300px;
+			position: relative;
+			overflow: hidden;
+		}
+		.photo span {
+			bottom: 0;
+			color: white;
+			display: block;
+			left: 50%;
+			font-size: 38px;
+			padding: 10px;
+			position: absolute;
+			text-shadow: 0 2px 0 black, 0 0 10px black;
+			width: 1280px;
+		}
+		.bgHolder {
+			background-image: url(img/guru_grad_paralax_background_001.jpg);
+			height:300px;
+		}
+		.pic1 {
+			background-image: url(img/paralax_foreground_image_001_814_100815.png);
+		}
+		.pic2 {
+			background-image: url(img/paralax_foreground_image_002_814_100815.png);
+		}
+
+		.pic3{
+			background-image: url(img/paralax_foreground_image_003_814_100815.png);
+		}
+
+
+		@media (min-width: 815px) {
+			.photo { 
+				height:600px;
+			}
+		  .bgHolder {
+					background-image: url(img/guru_grad_paralax_background_001.jpg);
+					height:600px;
+			}
+			.pic1 {
+				background-image: url(img/paralax_foreground_image_001.png);
+			}
+			.pic2 {
+				background-image: url(img/paralax_foreground_image_002.png);
+			}
+
+			.pic3 {
+				background-image: url(img/paralax_foreground_image_003.png);
+			}
+			
+		}
+
+
+				
+		</style>
+		<script src="js/jquery.min.js"></script><style type="text/css"></style>
+		<script src="js/stellar.js"></script>
+		<script>
+		$(function(){
+
+			$.stellar({
+				horizontalScrolling: false,
+				responsive: true,
+				parallaxBackgrounds: true,
+  				parallaxElements: true,
+  				verticalOffset: -50
+			});
+		});
+		</script>
+	</head>
+	<body >
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+		<div class="bgHolder">
+			<div class="photo pic1" data-stellar-background-ratio="0.5" ><span>Cat</span></div>
+		</div>
+
+
+		<div class="bgHolder">
+			<div class="photo pic2" data-stellar-background-ratio="0.5" ><span>Cloud</span></div>
+		</div>
+
+		<div class="bgHolder">
+			<div class="photo pic3" data-stellar-background-ratio="0.5" ><span>Guru</span></div>
+		</div>
+
+		<div class="bgHolder">
+			<div class="photo pic1" data-stellar-background-ratio="0.5" ><span>Cat</span></div>
+		</div>
+
+
+		<div class="bgHolder">
+			<div class="photo pic2" data-stellar-background-ratio="0.5" ><span>Cloud</span></div>
+		</div>
+
+		<div class="bgHolder">
+			<div class="photo pic3" data-stellar-background-ratio="0.5" ><span>Guru</span></div>
+		</div>
+		
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> 	
+</body>
+</html>

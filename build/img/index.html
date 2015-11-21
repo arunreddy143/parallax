@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="no-skrollr">
+<head>
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<title>O2 - Parallax demo</title>
+
+    <link rel="stylesheet" type="text/css" href="jquery.parmovement.css">
+	<style type="text/css">
+	
+		
+/* Required styles */
+/*.parmovement	    	{ min-height: 512px; height: 512px; position: relative; transform: translate3d(0px, 0px, 0px); }*/
+
+.parmovement {
+  position: relative;
+  transform: translate3d(0px, 0px, 0px);
+}
+
+.paraContent { position: relative }
+
+/* Optional styling */
+
+.scrollList {
+  color: #fff;
+  font-family: "Helvetica Neue", helvetica, arial, verdana, sans-serif;
+  font-size: 1.2em;
+  width:1024px;
+}
+
+ul.scrollList { list-style-type: none; }
+
+ul.scrollList > li { overflow: hidden; background: url(background-blue-grad-3000px-width.jpg);}
+
+ul.scrollList,
+ul.scrollList > li {
+  margin: 0 auto;
+  width: 100%;
+  padding: 0;
+  position: relative;
+}
+
+ul.scrollList > li.inBetween {
+  padding: 1em 2em;
+  background: #fff;
+  color: #333;
+}
+
+/* Slight ext shadow so it's raedable on top of the images */
+
+.parmovement,
+.parmovement h1,
+.parmovement h2 {
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.40);
+  margin-left: -0.05em;
+}
+
+.scrollList h1,
+.scrollList h2,
+.scrollList h3 {
+  font-size: 5em;
+  line-height: 1em;
+}
+
+.scrollList h2 {
+    font-size: 2.2em;
+    font-weight: 500;
+    margin: 2em 0em 0em 2em;
+    color: #fff;
+    width: 30%; 
+}
+
+
+.paraContent p {
+    font-size: 0.9em;
+    margin-top: 0.1em;
+    color: #fff;
+    margin: 2em 0em 0em 5em;
+    width: 25%;
+}
+
+/*  banner style   */
+.best-value{ 
+    background-color: darkblue;
+}
+.banner{
+    height: 800px;
+    width: 100%;
+    margin: 0 auto;
+    background:url(banner.png) no-repeat;
+}
+		
+		.parmovement {
+			min-height:360px;
+		}
+		
+		.scrollable {
+		  position: absolute;
+		  top: 0px;
+		  left: 0px;
+		  width: 100%;
+		  height: 500px;
+		  background-repeat: no-repeat;
+		}
+        
+		.paraContent {
+            padding: 0;
+			
+        }
+		.paraContent p {
+			padding:0;
+			margin:20px;
+		}
+		.scrollList h2 {
+			font-size: 20px;
+		}
+		#one .scrollable {
+            background: url("paralax_foreground_image_003_814_100815.png") no-repeat 55% 50%;
+
+        }
+        #two .scrollable {
+            background: url("paralax_foreground_image_002_814_100815.png") no-repeat 55% 50%;
+
+        }
+        #three .scrollable {
+            background: url("paralax_foreground_image_001_814_100815.png") no-repeat 55% 50%;
+            width: 100%;
+        }
+        
+        @media screen and (min-width: 575px) {
+
+        	#one .scrollable,#two .scrollable,#three .scrollable {
+            	background-position: 50% 50%;
+	        }
+	        
+        }
+		
+		@media screen and (min-width: 815px) {
+			#one .scrollable {
+            	background-image: url("paralax_foreground_image_003.png");
+        	}
+        	#two .scrollable {
+            	background-image: url("paralax_foreground_image_002-1.png");
+        	}
+			 #three .scrollable {
+				background-image: url("paralax_foreground_image_001.png");
+			}
+			
+			
+			.scrollable {
+			  height: 700px;
+			  
+			}
+			.parmovement {
+				min-height:600px;
+			}
+		
+		}
+        
+	</style>
+</head>
+
+<body>
+	
+     
+	 
+    
+    
+	
+		
+        
+
+            <!-- Starting Parallax Content -->
+                
+                <div class="best-value">
+                    <ul class="scrollList">
+
+                    	<li id="one" class="parmovement">
+                            <div class="scrollable"></div>
+                            <div class="paraContent">
+                                <h2>Get cash for your old tech</h2>
+                                <p>O2 Recycle gives you the best price  for unwanted devices ...</p>
+                            </div>
+                        </li>
+
+                        <li id="two" class=" parmovement guru  ">
+                            <div class="scrollable"></div>
+                            <div class="paraContent">
+                                <h2>Meet our friendly tech experts</h2>
+                                <p>O2 Gurus are here to give  you tech tips and tricks ...</p>
+                            </div>
+                        </li>
+                        
+                        <li id="three" class="parmovement">
+                            <div class="scrollable"></div>
+                            <div class="paraContent">
+                                <h2>A new phone is always in sight</h2>
+                                <p>Upgrade whenever you want to. With O2 refresh...</p>
+                            </div>
+                        </li>
+
+                        
+                    </ul>
+                </div>
+
+
+        
+        <!-- End Pin content -->
+        
+		 
+
+	<script src="jquery.min.js"></script>
+	<script type="text/javascript" src="skrollr.min.js"></script>    
+    <script src="jquery.parmovement.js"></script>
+
+    <script>
+    	skrollr.init({
+            smoothScrolling: false,
+            mobileDeceleration: 0.004
+        });
+        $(function () {
+            $('.parmovement').parmovement();
+        });      
+        
+        
+      </script>
+</body>
+
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html class="no-skrollr">
+<head>
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+	<title>O2 - Parallax demo</title>
+
+    <link rel="stylesheet" type="text/css" href="jquery.parmovement.css">
+	<style type="text/css">
+	* {
+		padding:0;
+		margin:0;
+	}
+
+	html, body {
+		height:100%;
+	}
+
+	.skrollr-desktop body {
+		height:100% !important;
+        overflow-x: hidden;
+	}
+
+	body {
+		font-family:sans-serif;
+	}
+
+	p {
+		margin:1em 0;
+	}
+
+	.parallax-image-wrapper {
+		position:fixed;
+		left:0;
+		width:100%;
+        top:0;
+		overflow:hidden;
+	}
+
+	.parallax-image-wrapper-50 {
+		height:50%;
+		top:-50%;
+	}
+
+	.parallax-image-wrapper-100 {
+		height:100%;
+		top:-100%;
+	}
+
+	.parallax-image {
+		display:none;
+		position:absolute;
+		bottom:0;
+		left:0;
+		width:100%;
+		background-repeat:no-repeat;
+		background-position:center;
+		background-size:cover;
+	}
+
+	.parallax-image-50 {
+		height:200%;
+		top:-50%;
+	}
+
+	.parallax-image-100 {
+		height:100%;
+		top:0;
+	}
+
+	.parallax-image.skrollable-between {
+		display:block;
+	}
+
+	.no-skrollr .parallax-image-wrapper {
+		display:none !important;
+	}
+
+	#skrollr-body {
+		height:100%;
+		overflow:visible;
+		position:relative;
+	}
+
+	.gap {
+		background:transparent center no-repeat;
+		background-size:cover;
+	}
+
+	.skrollr .gap {
+		background:transparent !important;
+	}
+
+	.gap-50 {
+		height:50%;
+	}
+
+	.gap-100 {
+		height:100%; 
+	}
+
+	.header, .content {
+		background:#f8f8f8;
+		padding:1em;
+
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		box-sizing:border-box;
+	}
+
+	.content-full {
+		height:100%;
+	}
+
+	#done {
+		height:100%;
+	}
+        
+        
+       
+    /* Parallax Styles */
+        .scrollList {
+            color: black !important;
+            background-color: #0D417B;
+            !important;
+        }
+        /* Specific backgrounds */
+        
+        
+		
+		
+		
+		
+        
+        ul.scrollList > li.guru {
+            overflow: hidden;
+            background: url(guru_grad_paralax_background_001.jpg);
+        }
+        /* Specific sizes for our example - you ned to set these for yours */
+        
+        .parmovement {
+            min-height: 520px;
+        }
+        
+        
+        
+        /* End Parallax styles*/
+         
+        
+        /* Pin Content Style */
+        .container{font-size:14px; margin:0 auto; width:960px}
+         .test_content{margin:10px 0;}
+         .scroller_anchor{height:0px; margin:0; padding:0;}
+         .scroller{background: url("4g.png"); border:1px solid #CCC; margin:0 0 10px; z-index:100; height:283px; font-size:18px; font-weight:bold; text-align:center; width:353px;right:50px;position: absolute;}
+         .o2-4g,.o2-wifi,.tu-go{height: 500px; width: 60%;border:1px solid red;}
+         .o2-travel{height: 500px;width: 60%;border:1px solid red;}        
+        /* End Pin Content Style */
+        
+        
+        /*Customized*/
+        #dragons{
+            background:url(banner.png);
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            height: 915px;
+        }
+		
+		
+		.parmovement {
+			min-height:360px;
+		}
+		
+		.scrollable {
+		  position: absolute;
+		  top: 0px;
+		  left: 0px;
+		  width: 100%;
+		  height: 500px;
+		  background-repeat: no-repeat;
+		}
+        
+		.paraContent {
+            padding: 0;
+			
+        }
+		.paraContent p {
+			padding:0;
+			margin:20px;
+		}
+		.scrollList h2 {
+			font-size: 20px;
+		}
+        #three .scrollable {
+            background: url("paralax_foreground_image_001_814_100815.png") no-repeat 55% 50%;
+            width: 100%;
+        }
+        #two .scrollable {
+            background: url("paralax_foreground_image_002_814_100815.png") no-repeat 55% 50%;
+
+        }
+        @media screen and (min-width: 575px) {
+
+        	#three .scrollable,#two .scrollable {
+            	background-position: 50% 50%;
+	        }
+	        
+        }
+		
+		@media screen and (min-width: 815px) {
+			 #three .scrollable {
+				background-image: url("paralax_foreground_image_001.png");
+			}
+			#two .scrollable {
+            	background-image: url("paralax_foreground_image_002-1.png");
+        	}
+			
+			.scrollable {
+			  height: 700px;
+			  
+			}
+			.parmovement {
+				min-height:600px;
+			}
+		
+		}
+        
+	</style>
+</head>
+
+<body>
+	<!--
+		We position the images fixed and therefore need to place them outside of #skrollr-body.
+		We will then use data-anchor-target to display the correct image matching the current section (.gap element).
+	-->
+
+    <!--top banner -->
+	<div
+		class="parallax-image-wrapper parallax-image-wrapper-100"
+		data-anchor-target="#dragons + .gap"
+		data-bottom-top="transform:translate3d(0px, 200%, 0px)"
+		data-top-bottom="transform:translate3d(0px, 0%, 0px)">
+
+		<div
+			class="parallax-image parallax-image-100"
+			style="background-image:url( banner.png)"
+			data-anchor-target="#dragons + .gap"
+			data-bottom-top="transform: translate3d(0px, -80%, 0px);"
+			data-top-bottom="transform: translate3d(0px, 80%, 0px);"
+		></div>
+		<!--the +/-80% translation can be adjusted to control the speed difference of the image-->
+	</div>
+    <!--top banner ends -->
+     
+	 
+    
+    
+	<div id="skrollr-body">
+		<!-- Starting Wrapper -->
+         
+		
+        <div class="header" id="dragons">
+			
+             
+		</div>
+        
+            <!-- Starting banner  
+
+                <div class="gaps gap-100"  >
+                      
+                </div>        
+
+              Ending Banner -->
+
+
+
+                <div class="content" id="bacons" >
+                    <!--<p><img src="best-value.png"></p> -->
+                </div>
+
+
+            <!-- Starting Parallax Content -->
+                
+                <div class="best-value">
+                    <ul class="scrollList">
+                        
+                        <li id="three" class="parmovement">
+                            <div class="scrollable"></div>
+                            <div class="paraContent">
+                                <h2>A new phone is always in sight</h2>
+                                <p>Upgrade whenever you want to. With O2 refresh...</p>
+                            </div>
+                        </li>
+
+                        <!-- <li id="one" class="parmovement">
+                            <div class="scrollable"></div>
+                            <div class="paraContent">
+                                <h2>Get cash for your old tech</h2>
+                                <p>O2 Recycle gives you the best price  for unwanted devices ...</p>
+                            </div>
+                        </li> -->
+
+                        <li id="two" class=" parmovement guru  ">
+                            <div class="scrollable"></div>
+                            <div class="paraContent">
+                                <h2>Meet our friendly tech experts</h2>
+                                <p>O2 Gurus are here to give  you tech tips and tricks ...</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+            <!-- Ending Parallax Content -->
+
+
+        
+        
+		<div class="content" id="bacons">
+			<p><img src="reward.png"></p> 
+		</div>
+        
+        
+        
+        
+        
+        
+        <!-- Pin content -->
+        
+        
+        <div class="container">
+            <div class="test_content">
+               <br><br><br><br>
+            </div>
+            <!-- This div is used to indicate the original position of the scrollable fixed div. -->
+            <div class="scroller_anchor"></div>
+            <!-- This div will be displayed as fixed bar at the top of the page, when user scrolls -->
+            <div class="scroller"></div>
+            <div class="o2-4g">
+               4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1 
+               4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1 
+               4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1 
+               4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1  4g Div 1 
+            </div>
+            <div class="o2-wifi" style="margin-top:60px;">
+               wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2 
+               wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2 
+               wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2 
+               wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2  wifi div 2 
+            </div>
+            <div class="tu-go"  style="margin-top:60px;">
+               tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3 
+               tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3 
+               tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3  tugo div 3 
+            </div>
+            <div class="o2-travel"  style="margin-top:60px;">
+               travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4 
+               travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4  travel div 4 
+            </div>
+             <div style="height:1500px;">
+             </div>
+            
+         </div>
+        
+        
+        <!-- End Pin content -->
+        
+		 
+	</div>
+
+	<script type="text/javascript" src="skrollr.min.js"></script>
+	<script type="text/javascript">
+        skrollr.init({
+            smoothScrolling: false,
+            mobileDeceleration: 0.004
+        });
+	</script>
+    <script src="jquery.min.js"></script>
+    <script src="jquery.parmovement.js"></script>
+
+    <script>
+        $(function () {
+            $('.parmovement').parmovement();
+        });      
+        
+        
+       $(document).ready(function(){ /*Pin Content Script */
+        // This function will be executed when the user scrolls the page.
+      $(window).scroll(function(e) {
+      // Get the position of the location where the scroller starts.
+      var scroller_anchor = $(".scroller_anchor").offset().top;
+      var scroller_anchor2 = (scroller_anchor+99)//$(".o2-4g").offset().top;
+      //set the height of the scroll according to the 'console output'  to change the image according to the DIV 
+      var scroller_anchor3 = (scroller_anchor+434);//$(".o2-wifi").offset().top;
+      var scroller_anchor4 = (scroller_anchor+1027);//$(".tu-go").offset().top;
+      var scroller_anchor5 = (scroller_anchor+1550)//$(".o2-travel").offset().top;
+//      var o2TravelHeight   = $(".test").offset().top;
+      // postion for setting position of the .scroller,url for image,top for top position,
+      //opacity for fade effect,activeClass for fade effect for text  
+       $('.scroller').css({'top': (scroller_anchor+99)});
+      var floatingBox = function(position,url,top,opacity,activeClass,next)
+      {
+          this.position='fixed';
+          this.top='283px';
+          this.url='4g.png';
+         // this.activeClass='.o2-4g';
+          this.opacity='1';
+          $('.scroller').css({'background': 'url('+ url +')','position':position,'top': top,
+                              'opacity': opacity,'border':'1px solid #CCC'
+                             });
+          $(activeClass).css({'opacity': opacity});
+          $(next).css({'opacity': (1-i)});
+      }
+      
+      
+      if ($(this).scrollTop() < scroller_anchor)
+          {          
+           $('.scroller').css({'opacity': '1'});
+          }
+      
+      // Check if the user has scrolled and the current position is after the scroller's start location and if its not already fixed at the top 
+      if ($(this).scrollTop() >= (scroller_anchor) && $('.scroller').css('position') != 'fixed') 
+      {    // Change the CSS of the scroller to hilight it and fix it at the top of the screen.
+          
+         $('.scroller').css({
+             'background': 'url("4g.png")',
+              'border': '1px solid #000',
+              'position': 'fixed'
+              //'right': '50px',
+              
+              
+          });
+          // Changing the height of the scroller anchor to that of scroller so that there is no change in the overall height of the page.
+          //$('.scroller_anchor').css('height', '50px');
+        } 
+      else if ($(this).scrollTop() < (scroller_anchor+100)) 
+      {    // If the user has scrolled back to the location above the scroller anchor place it back into the content.
+          
+          // Change the height of the scroller anchor to 0 and now we will be adding the scroller back to the content.
+          $('.scroller_anchor').css('height', '0px');
+          
+          // Change the CSS and put it back to its original position.
+          floatingBox('absolute','4g.png',(scroller_anchor+99),'1','.o2-4g','.o2-wifi');
+      }
+          if ($(this).scrollTop() >=(scroller_anchor) && $(this).scrollTop() < scroller_anchor3 )
+          {
+             //585 is the last scrolling index and 489 is calculated by multiplying the first starting index
+             //i.e $(this).scrollTop() with .99 so that we can get exact opacity index 
+          var i = 4036;
+              i = ((i - $(this).scrollTop())/400);
+          console.log("scroller_anchor2 "+$(this).scrollTop()+"  bluring_i  "+i );
+          floatingBox('fixed','4g.png','99px',i,'.o2-4g','.o2-wifi');
+          }
+              
+          
+          else if($(this).scrollTop() >=scroller_anchor3 && $(this).scrollTop() < scroller_anchor4)
+          {   
+          var i = 4644;
+              i = ((i - $(this).scrollTop())/548);
+          console.log("scroller_anchor3 "+$(this).scrollTop()+"  bluring_i  "+i);
+          floatingBox('fixed','wifi.png','99px',i,'.o2-wifi','.tu-go');
+          
+          }else if($(this).scrollTop() >=scroller_anchor4 && $(this).scrollTop() < scroller_anchor5)
+          {
+          var i = 5196;
+              i = ((i - $(this).scrollTop())/600);
+          console.log("scroller_anchor4 "+$(this).scrollTop()+"  bluring_i  "+i);
+          floatingBox('fixed','togo.png','99px',i,'.tu-go','.o2-travel');
+          
+          }else if($(this).scrollTop() >= scroller_anchor5 && $(this).scrollTop() < (scroller_anchor+1770))
+          { i=1;
+          console.log("scroller_anchor5 "+$(this).scrollTop());
+          floatingBox('fixed','imgpsh_fullsize3.png','99px','1','.o2-travel','.o2-4g');
+          }
+          
+          
+          else if($(this).scrollTop() >= (scroller_anchor+1770))
+          {
+          console.log("test "+$(this).scrollTop());
+          floatingBox('absolute','imgpsh_fullsize3.png',(scroller_anchor+1770),'1','.o2-travel','.o2-4g');
+          }
+          
+      });
+       });
+    </script>
+</body>
+
+</html>

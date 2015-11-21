@@ -1,0 +1,81 @@
+
+/* Required styles */
+/*.parmovement	    	{ min-height: 512px; height: 512px; position: relative; transform: translate3d(0px, 0px, 0px); }*/
+
+.parmovement {
+  position: relative;
+  transform: translate3d(0px, 0px, 0px);
+}
+
+.paraContent { position: relative }
+
+/* Optional styling */
+
+.scrollList {
+  color: #fff;
+  font-family: "Helvetica Neue", helvetica, arial, verdana, sans-serif;
+  font-size: 1.2em;
+  width:1024px;
+}
+
+ul.scrollList { list-style-type: none; }
+
+ul.scrollList > li { overflow: hidden; background: url(background-blue-grad-3000px-width.jpg);}
+
+ul.scrollList,
+ul.scrollList > li {
+  margin: 0 auto;
+  width: 100%;
+  padding: 0;
+  position: relative;
+}
+
+ul.scrollList > li.inBetween {
+  padding: 1em 2em;
+  background: #fff;
+  color: #333;
+}
+
+/* Slight ext shadow so it's raedable on top of the images */
+
+.parmovement,
+.parmovement h1,
+.parmovement h2 {
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.40);
+  margin-left: -0.05em;
+}
+
+.scrollList h1,
+.scrollList h2,
+.scrollList h3 {
+  font-size: 5em;
+  line-height: 1em;
+}
+
+.scrollList h2 {
+    font-size: 2.2em;
+    font-weight: 500;
+    margin: 2em 0em 0em 2em;
+    color: #fff;
+    width: 30%; 
+}
+
+
+.paraContent p {
+    font-size: 0.9em;
+    margin-top: 0.1em;
+    color: #fff;
+    margin: 2em 0em 0em 5em;
+    width: 25%;
+}
+
+/*  banner style   */
+.best-value{ 
+    background-color: darkblue;
+}
+.banner{
+    height: 800px;
+    width: 100%;
+    margin: 0 auto;
+    background:url(banner.png) no-repeat;
+}
